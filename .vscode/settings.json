@@ -1,4 +1,8 @@
 {
+  // This section is for code-runner settings
+  "code-runner.clearPreviousOutput": true,
+  // This section is for formatting settings
+  "editor.defaultFormatter": "esbenp.prettier-vscode", // Set Prettier as the default formatter
   // This section is for excluding certain files or folders from your workspace
   "files.exclude": {
     // Set this to true to hide the "out" folder with the compiled JS files
