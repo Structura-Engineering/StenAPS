@@ -7,6 +7,7 @@
   },
   "displayName": "StenAPS",
   "description": "Sten's Automatic Project Setup",
+  "icon": "./icon.png",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.84.0"
@@ -14,16 +15,10 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "main": "./dist/extension.js",
-  "contributes": {
-    "commands": [
-      {
-        "command": "StenAPS.helloWorld",
-        "title": "Hello World"
-      }
-    ]
-  },
   "scripts": {
     "vscode:prepublish": "pnpm run package",
     "compile": "webpack",
@@ -48,6 +43,7 @@
     "ts-loader": "^9.5.0",
     "typescript": "^5.2.2",
     "webpack": "^5.89.0",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^5.1.4",
+    "child_process": "^1.0.2"
   }
 }
