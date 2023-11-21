@@ -1,5 +1,9 @@
 {
   "name": "stenaps",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Structura-Engineering/StenAPS.git"
+  },
   "displayName": "StenAPS",
   "description": "Sten's Automatic Project Setup",
   "version": "0.0.1",
