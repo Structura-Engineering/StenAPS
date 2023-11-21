@@ -1,0 +1,129 @@
+{
+  "cmake.configureOnOpen": true,
+  "code-runner.clearPreviousOutput": true,
+  "code-runner.executorMap": {
+    "python": "$pythonPath -u $fullFileName"
+  },
+  "code-runner.runInTerminal": true,
+  "C_Cpp.errorSquiggles": "enabled",
+  "[css]": {
+    "editor.defaultFormatter": "vscode.css-language-features",
+    "editor.formatOnSave": true
+  },
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features",
+    "editor.formatOnSave": true
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.formatOnSave": true
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[powershell]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    },
+    "editor.defaultFormatter": "ms-vscode.powershell",
+    "editor.formatOnSave": true
+  },
+  "[python]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    },
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+    "editor.formatOnSave": true
+  },
+  "deepsource.installationUrl": "https://app.deepsource.com",
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "github.copilot.enable": {
+    "*": true,
+    "markdown": true,
+    "plaintext": true,
+    "scminput": false
+  },
+  "git.autofetch": true,
+  "git.enableSmartCommit": true,
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.autoSearchPaths": true,
+  "python.analysis.completeFunctionParens": true,
+  "python.analysis.diagnosticMode": "workspace",
+  "python.analysis.diagnosticSeverityOverrides": {
+    "reportWildcardImportFromLibrary": "none"
+  },
+  "python.analysis.extraPaths": ["./QeLib", "./tests"],
+  "python.analysis.importFormat": "relative",
+  "python.analysis.inlayHints.pytestParameters": true,
+  "python.analysis.typeCheckingMode": "basic",
+  "python.testing.unittestArgs": ["-v", "-s", "./tests", "-p", "*_test.py"],
+  "python.testing.pytestEnabled": false,
+  "python.testing.unittestEnabled": true,
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "workbench.colorTheme": "Monokai Dimmed",
+  "workbench.editorAssociations": {
+    "*.db": "default",
+    "*.pyd": "default"
+  },
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.startupEditor": "none",
+  "json.schemas": [
+    {
+      "fileMatch": ["*.json", "*.jsonc"],
+      "url": "https://json.schemastore.org/package"
+    }
+  ],
+  "todo-tree.general.tags": ["ERROR", "BUG", "FIXME", "TODO", "NOTE"],
+  "todo-tree.highlights.defaultHighlight": {
+    "gutterIcon": true,
+    "fontWeight": "bold",
+    "borderRadius": "0.2em"
+  },
+  "todo-tree.highlights.customHighlight": {
+    "ERROR": {
+      "icon": "alert",
+      "iconColour": "#ff0000",
+      "foreground": "#ffffff",
+      "background": "#ff0000"
+    },
+    "BUG": {
+      "icon": "bug",
+      "iconColour": "#ffa500",
+      "foreground": "#000000",
+      "background": "#ffa500"
+    },
+    "FIXME": {
+      "icon": "flame",
+      "iconColour": "#0000ff",
+      "foreground": "#ffffff",
+      "background": "#0000ff"
+    },
+    "TODO": {
+      "icon": "check",
+      "iconColour": "#008000",
+      "foreground": "#ffffff",
+      "background": "#008000"
+    },
+    "NOTE": {
+      "icon": "note",
+      "iconColour": "#ffff00",
+      "foreground": "#000000",
+      "background": "#ffff00"
+    }
+  },
+  "mypy.runUsingActiveInterpreter": true
+}
