@@ -18,12 +18,12 @@ export function activate(context: ExtensionContext) {
       const setupScriptPath = join(workspaceFolder.uri.fsPath, "setup.ps1");
       const terminal = window.createTerminal();
       terminal.sendText(
-        `powershell -ExecutionPolicy Bypass -File "${setupScriptPath}"`
+        `powershell -ExecutionPolicy Bypass -File "${setupScriptPath}"`,
       );
       terminal.show();
     } else {
       window.showErrorMessage(
-        "No workspace folder found. Please open a workspace folder and try again."
+        "No workspace folder found. Please open a workspace folder and try again.",
       );
     }
   });
