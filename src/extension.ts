@@ -7,7 +7,7 @@ export function activate(context: vscode.ExtensionContext) {
     "StenAPS.helloWorld",
     () => {
       vscode.window.showInformationMessage("Hello World from StenAPS!");
-    }
+    },
   );
 
   context.subscriptions.push(helloWorldCommand);
