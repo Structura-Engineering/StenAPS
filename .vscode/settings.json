@@ -1,67 +1,58 @@
 {
-  // This section is for code-runner settings
+  "[powershell]": {
+    "editor.defaultFormatter": "ms-vscode.powershell",
+    "editor.formatOnSave": true
+  },
   "code-runner.clearPreviousOutput": true,
-  // This section is for formatting settings
-  "editor.defaultFormatter": "esbenp.prettier-vscode", // Set Prettier as the default formatter
-  // This section is for excluding certain files or folders from your workspace
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
   "files.exclude": {
-    // Set this to true to hide the "out" folder with the compiled JS files
-    "out": false,
-    // Set this to true to hide the "dist" folder with the compiled JS files
-    "dist": false
+    "dist": false,
+    "out": false
   },
-  // This section is for excluding certain files or folders from your search results
+  "npm.packageManager": "pnpm",
   "search.exclude": {
-    // Set this to false to include "out" folder in search results
-    "out": true,
-    // Set this to false to include "dist" folder in search results
-    "dist": true
+    "dist": true,
+    "out": true
   },
-  // This section is for TypeScript settings
-  "typescript.tsc.autoDetect": "off", // Turn off tsc task auto detection since we have the necessary tasks as npm scripts
-  // This section is for workbench settings
-  "workbench.iconTheme": "material-icon-theme", // Set the icon theme for the workbench
-  // This section is for todo-tree settings
-  "todo-tree.general.tags": ["ERROR", "BUG", "FIXME", "TODO", "NOTE"], // Define the tags for the todo-tree
-  "todo-tree.highlights.defaultHighlight": {
-    "gutterIcon": true, // Enable gutter icons for the default highlight
-    "fontWeight": "bold", // Set the font weight for the default highlight
-    "borderRadius": "0.2em" // Set the border radius for the default highlight
-  },
+  "todo-tree.general.tags": ["ERROR", "BUG", "FIXME", "TODO", "NOTE"],
   "todo-tree.highlights.customHighlight": {
-    // Define the custom highlights for each tag
-    "ERROR": {
-      "icon": "alert", // Set the icon for the ERROR tag
-      "iconColour": "#ff0000", // Set the icon color for the ERROR tag
-      "foreground": "#ffffff", // Set the foreground color for the ERROR tag
-      "background": "#ff0000" // Set the background color for the ERROR tag
-    },
     "BUG": {
-      "icon": "bug", // Set the icon for the BUG tag
-      "iconColour": "#ffa500", // Set the icon color for the BUG tag
-      "foreground": "#000000", // Set the foreground color for the BUG tag
-      "background": "#ffa500" // Set the background color for the BUG tag
+      "background": "#ffa500",
+      "foreground": "#000000",
+      "icon": "bug",
+      "iconColour": "#ffa500"
+    },
+    "ERROR": {
+      "background": "#ff0000",
+      "foreground": "#ffffff",
+      "icon": "alert",
+      "iconColour": "#ff0000"
     },
     "FIXME": {
-      "icon": "flame", // Set the icon for the FIXME tag
-      "iconColour": "#0000ff", // Set the icon color for the FIXME tag
-      "foreground": "#ffffff", // Set the foreground color for the FIXME tag
-      "background": "#0000ff" // Set the background color for the FIXME tag
-    },
-    "TODO": {
-      "icon": "check", // Set the icon for the TODO tag
-      "iconColour": "#008000", // Set the icon color for the TODO tag
-      "foreground": "#ffffff", // Set the foreground color for the TODO tag
-      "background": "#008000" // Set the background color for the TODO tag
+      "background": "#0000ff",
+      "foreground": "#ffffff",
+      "icon": "flame",
+      "iconColour": "#0000ff"
     },
     "NOTE": {
-      "icon": "note", // Set the icon for the NOTE tag
-      "iconColour": "#ffff00", // Set the icon color for the NOTE tag
-      "foreground": "#000000", // Set the foreground color for the NOTE tag
-      "background": "#ffff00" // Set the background color for the NOTE tag
+      "background": "#ffff00",
+      "foreground": "#000000",
+      "icon": "note",
+      "iconColour": "#ffff00"
+    },
+    "TODO": {
+      "background": "#008000",
+      "foreground": "#ffffff",
+      "icon": "check",
+      "iconColour": "#008000"
     }
   },
-  // This section is for npm settings
-  "npm.packageManager": "pnpm",
-  "editor.formatOnSave": true
+  "todo-tree.highlights.defaultHighlight": {
+    "borderRadius": "0.2em",
+    "fontWeight": "bold",
+    "gutterIcon": true
+  },
+  "typescript.tsc.autoDetect": "off",
+  "workbench.iconTheme": "material-icon-theme"
 }

@@ -1,14 +1,12 @@
 import * as vscode from "vscode";
 import * as path from "path";
 
-const extensionName = "StenAPS";
-const extensionASCII = "";
-
 export function activate(context: vscode.ExtensionContext) {
   console.log("Congratulations, your extension is now active!");
 
-  context.subscriptions.push(
-    vscode.commands.registerCommand(`"${extensionName}.Setup"`, async () => {
+  let disposableSetup = vscode.commands.registerCommand(
+    "StenAPS.Setup",
+    async () => {
       const workspaceFolder = vscode.workspace.workspaceFolders?.[0];
 
       if (workspaceFolder) {
@@ -17,8 +15,6 @@ export function activate(context: vscode.ExtensionContext) {
           "setup.ps1"
         );
         const terminal = vscode.window.createTerminal();
-        terminal.show();
-        terminal.sendText(`echo "${extensionASCII}"`);
         terminal.sendText(
           `powershell -ExecutionPolicy Bypass -File "${setupScriptPath}"`
         );
@@ -28,6 +24,8 @@ export function activate(context: vscode.ExtensionContext) {
           "No workspace folder found. Please open a workspace folder and try again."
         );
       }
-    })
+    }
   );
+
+  context.subscriptions.push(disposableSetup);
 }
