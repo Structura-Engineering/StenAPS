@@ -12,19 +12,19 @@ export function activate(context: vscode.ExtensionContext) {
       if (workspaceFolder) {
         const setupScriptPath = path.join(
           workspaceFolder.uri.fsPath,
-          "setup.ps1"
+          "setup.ps1",
         );
         const terminal = vscode.window.createTerminal();
         terminal.sendText(
-          `powershell -ExecutionPolicy Bypass -File "${setupScriptPath}"`
+          `powershell -ExecutionPolicy Bypass -File "${setupScriptPath}"`,
         );
         terminal.show();
       } else {
         vscode.window.showErrorMessage(
-          "No workspace folder found. Please open a workspace folder and try again."
+          "No workspace folder found. Please open a workspace folder and try again.",
         );
       }
-    }
+    },
   );
   context.subscriptions.push(disposableSetup);
 }
