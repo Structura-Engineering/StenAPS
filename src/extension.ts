@@ -4,9 +4,9 @@ import * as path from "path";
 export function activate(context: vscode.ExtensionContext) {
   console.log("Congratulations, your extension is now active!");
 
-  let disposableSetup = vscode.commands.registerCommand(
+  const disposableSetup = vscode.commands.registerCommand(
     "StenAPS.Setup",
-    async () => {
+    () => {
       const workspaceFolder = vscode.workspace.workspaceFolders?.[0];
 
       if (workspaceFolder) {
@@ -26,6 +26,4 @@ export function activate(context: vscode.ExtensionContext) {
       }
     }
   );
-
-  context.subscriptions.push(disposableSetup);
 }
