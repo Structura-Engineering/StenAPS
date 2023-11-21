@@ -23,6 +23,9 @@ devDependencies:
   '@vscode/test-electron':
     specifier: ^2.3.6
     version: 2.3.6
+  child_process:
+    specifier: ^1.0.2
+    version: 1.0.2
   eslint:
     specifier: ^8.52.0
     version: 8.54.0
@@ -694,6 +697,10 @@ packages:
     dependencies:
       ansi-styles: 4.3.0
       supports-color: 7.2.0
+    dev: true
+
+  /child_process@1.0.2:
+    resolution: {integrity: sha512-Wmza/JzL0SiWz7kl6MhIKT5ceIlnFPJX+lwUGj7Clhy5MMldsSoJR0+uvRzOS5Kv45Mq7t1PoE8TsOA9bzvb6g==}
     dev: true
 
   /chokidar@3.5.3:
