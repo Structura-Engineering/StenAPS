@@ -2,6 +2,14 @@ import { resolve } from "path";
 import Mocha from "mocha";
 import { glob } from "glob";
 
+/**
+ * This function runs the test suite using Mocha.
+ * It finds all test files in the test directory and adds them to Mocha.
+ * Then it runs the tests and returns a promise that resolves when the tests are done.
+ * If any tests fail, it rejects the promise with an error.
+ *
+ * @returns {Promise<void>} A promise that resolves when the tests are done.
+ */
 export async function run(): Promise<void> {
   const mocha = new Mocha({
     ui: "tdd",
