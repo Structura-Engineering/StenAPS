@@ -26,4 +26,5 @@ export function activate(context: vscode.ExtensionContext) {
       }
     }
   );
+  context.subscriptions.push(disposableSetup);
 }
