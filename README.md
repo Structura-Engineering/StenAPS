@@ -4,9 +4,9 @@
 
 Sten's Automatic Project Setup.
 <p align="center">
-  <a href="https://app.deepsource.com/gh/Structura-Engineering/StenSetup/">
-    <img src="https://app.deepsource.com/gh/Structura-Engineering/StenSetup.svg/?label=active+issues&show_trend=true&token=bgfxoNs97C_0esIOstXNZW-k" alt="DeepSource">
-    <img src="https://app.deepsource.com/gh/Structura-Engineering/StenSetup.svg/?label=resolved+issues&show_trend=true&token=bgfxoNs97C_0esIOstXNZW-k" alt="DeepSource">
+  <a href="https://app.deepsource.com/gh/Structura-Engineering/StenAPS/">
+    <img src="https://app.deepsource.com/gh/Structura-Engineering/StenAPS.svg/?label=active+issues&show_trend=true&token=bgfxoNs97C_0esIOstXNZW-k" alt="DeepSource">
+    <img src="https://app.deepsource.com/gh/Structura-Engineering/StenAPS.svg/?label=resolved+issues&show_trend=true&token=bgfxoNs97C_0esIOstXNZW-k" alt="DeepSource">
   </a>
 </p>
 
