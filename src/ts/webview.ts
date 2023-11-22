@@ -10,19 +10,19 @@ export function createWebview() {
     "webview",
     "StenAPS",
     ViewColumn.One,
-    {}
+    {},
   );
 
   if (workspace.workspaceFolders) {
     const htmlPath = join(
       workspace.workspaceFolders[0].uri.fsPath,
-      "../html/index.html"
+      "../html/index.html",
     );
     const htmlContent = readFileSync(htmlPath, "utf16le");
     panel.webview.html = htmlContent;
   } else {
     window.showErrorMessage(
-      "No workspace opened. Please open a workspace first."
+      "No workspace opened. Please open a workspace first.",
     );
   }
 }
