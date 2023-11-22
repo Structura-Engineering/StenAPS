@@ -5,6 +5,10 @@ interface Scripts {
   [key: string]: string | undefined;
 }
 
+/**
+ * Invokes a script based on the key provided.
+ * @param key The key of the script to invoke.
+ */
 export function invokeScriptByKey(key: string) {
   const workspaceFolder = workspace.workspaceFolders?.[0];
 

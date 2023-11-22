@@ -1,6 +1,6 @@
 import { ExtensionContext, commands } from "vscode";
-import { invokeScriptByKey } from "./utils";
-import { createWebview } from "./main_page";
+import { invokeScriptByKey } from "./ts/utils";
+import { createWebview } from "./ts/webview";
 
 /**
  * This function is called when your extension is activated.
@@ -12,10 +12,10 @@ import { createWebview } from "./main_page";
 export function activate(context: ExtensionContext) {
   const disposables = [
     commands.registerCommand(
-      "StenAPS.Setup",
+      "StenAPS.setup",
       () => invokeScriptByKey("py") //implement key passing here.
     ),
-    commands.registerCommand("StenAPS.Webview", createWebview),
+    commands.registerCommand("StenAPS.webview", createWebview),
   ];
 
   context.subscriptions.push(...disposables);
