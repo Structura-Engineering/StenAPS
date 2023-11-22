@@ -15,25 +15,30 @@ export function createWebview() {
       localResourceRoots: [
         Uri.file(join(workspace.workspaceFolders![0].uri.fsPath, "src")),
       ],
-    }
+    },
   );
 
   const htmlPath = Uri.file(
-    join(workspace.workspaceFolders![0].uri.fsPath, "src", "html", "index.html")
+    join(
+      workspace.workspaceFolders![0].uri.fsPath,
+      "src",
+      "html",
+      "index.html",
+    ),
   );
   let htmlContent = readFileSync(htmlPath.fsPath, "utf8");
 
   const srcPath = panel.webview.asWebviewUri(
-    Uri.file(join(workspace.workspaceFolders![0].uri.fsPath, "src"))
+    Uri.file(join(workspace.workspaceFolders![0].uri.fsPath, "src")),
   );
 
   htmlContent = htmlContent.replace(
     new RegExp('src="../', "g"),
-    `src="${srcPath}/`
+    `src="${srcPath}/`,
   );
   htmlContent = htmlContent.replace(
     new RegExp('href="../', "g"),
-    `href="${srcPath}/`
+    `href="${srcPath}/`,
   );
 
   panel.webview.html = htmlContent;
