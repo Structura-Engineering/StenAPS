@@ -14,7 +14,7 @@ export function invokeScriptByKey(key: string) {
 
   if (!workspaceFolder) {
     window.showErrorMessage(
-      "No workspace folder found. Please open a workspace folder and try again."
+      "No workspace folder found. Please open a workspace folder and try again.",
     );
     return;
   }
@@ -35,8 +35,8 @@ export function invokeScriptByKey(key: string) {
   terminal.sendText(
     `powershell -ExecutionPolicy Bypass -File "${join(
       workspaceFolder.uri.fsPath,
-      scriptPath
-    )}"`
+      scriptPath,
+    )}"`,
   );
   terminal.show();
 }
