@@ -58,5 +58,8 @@ class ImageSecurity {
     });
   }
 }
-const ImageElement = document.addEventListener("DOMContentLoaded");
-const _ = new ImageSecurity(ImageElement);
+
+// Wait for the DOM to be fully loaded before creating a new instance of ImageSecurity
+document.addEventListener("DOMContentLoaded", function () {
+  const _ = new ImageSecurity();
+});
