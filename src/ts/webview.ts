@@ -1,15 +1,7 @@
 import { window, ViewColumn, Uri, ExtensionContext } from "vscode";
 import { join } from "path";
 import { readFileSync } from "fs";
-
-/**
- * Returns the resource path for the extension.
- * @param {ExtensionContext} context - The extension context.
- * @returns {Uri} - The resource path.
- */
-function getResourcePath(context: ExtensionContext) {
-  return Uri.file(join(context.extensionPath, "src"));
-}
+import { getResourcePath } from "./utils";
 
 /**
  * Returns the HTML content for the webview.

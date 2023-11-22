@@ -18,10 +18,6 @@
   "contributes": {
     "commands": [
       {
-        "command": "StenAPS.setup",
-        "title": "StenAPS: Setup"
-      },
-      {
         "command": "StenAPS.webview",
         "title": "StenAPS: Webview"
       }
