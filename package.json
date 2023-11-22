@@ -20,6 +20,10 @@
       {
         "command": "StenAPS.Setup",
         "title": "StenAPS: Setup"
+      },
+      {
+        "command": "StenAPS.Webview",
+        "title": "StenAPS: Webview"
       }
     ]
   },
