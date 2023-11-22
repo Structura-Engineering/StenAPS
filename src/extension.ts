@@ -13,7 +13,7 @@ export function activate(context: ExtensionContext) {
   const disposables = [
     commands.registerCommand(
       "StenAPS.setup",
-      () => invokeScriptByKey("py") //implement key passing here.
+      () => invokeScriptByKey("py"), //implement key passing here.
     ),
     commands.registerCommand("StenAPS.webview", () => createWebview(context)),
   ];
