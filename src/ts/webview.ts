@@ -19,7 +19,7 @@ function getResourcePath(context: ExtensionContext) {
  */
 function getHtmlContent(context: ExtensionContext, srcPath: Uri) {
   const htmlPath = Uri.file(
-    join(context.extensionPath, "src", "html", "index.html")
+    join(context.extensionPath, "src", "html", "index.html"),
   );
   let htmlContent = readFileSync(htmlPath.fsPath, "utf8");
 
@@ -41,7 +41,7 @@ export function createWebview(context: ExtensionContext) {
     {
       enableScripts: true,
       localResourceRoots: [getResourcePath(context)],
-    }
+    },
   );
 
   const srcPath = panel.webview.asWebviewUri(getResourcePath(context));

@@ -19,10 +19,10 @@ class SwitchPages {
    * and adds the "active" class to the clicked tool item.
    */
   init() {
-    var toolItems = document.getElementsByClassName("tool-item");
-    for (var i = 0; i < toolItems.length; i++) {
+    const toolItems = document.getElementsByClassName("tool-item");
+    for (let i = 0; i < toolItems.length; i++) {
       toolItems[i].addEventListener("click", function () {
-        var current = document.getElementsByClassName("active");
+        const current = document.getElementsByClassName("active");
         current[0].className = current[0].className.replace(" active", "");
         this.className += " active";
       });
