@@ -30,7 +30,7 @@ export function createWebview() {
     {
       enableScripts: true,
       localResourceRoots: [srcPath],
-    }
+    },
   );
 
   const htmlPath = Uri.file(join(workspacePath, "src", "html", "index.html"));
