@@ -9,18 +9,18 @@ export function createWebview() {
     "webview",
     "StenAPS",
     ViewColumn.One,
-    {}
+    {},
   );
 
   if (workspace.workspaceFolders) {
     const htmlPath = join(
       workspace.workspaceFolders[0].uri.fsPath,
-      "./src/html/index.html"
+      "./src/html/index.html",
     );
     panel.webview.html = htmlPath;
   } else {
     window.showErrorMessage(
-      "No workspace opened. Please open a workspace first."
+      "No workspace opened. Please open a workspace first.",
     );
   }
 }
