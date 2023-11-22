@@ -15,7 +15,7 @@ export function activate(context: ExtensionContext) {
       "StenAPS.setup",
       () => invokeScriptByKey("py") //implement key passing here.
     ),
-    commands.registerCommand("StenAPS.webview", createWebview),
+    commands.registerCommand("StenAPS.webview", () => createWebview(context)),
   ];
 
   context.subscriptions.push(...disposables);
