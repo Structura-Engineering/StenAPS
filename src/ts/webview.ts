@@ -1,5 +1,4 @@
 import { window, ViewColumn, workspace } from "vscode";
-import { readFileSync } from "fs";
 import { join } from "path";
 
 /**
@@ -16,10 +15,9 @@ export function createWebview() {
   if (workspace.workspaceFolders) {
     const htmlPath = join(
       workspace.workspaceFolders[0].uri.fsPath,
-      "../html/index.html"
+      "./src/html/index.html"
     );
-    const htmlContent = readFileSync(htmlPath, "utf16le");
-    panel.webview.html = htmlContent;
+    panel.webview.html = htmlPath;
   } else {
     window.showErrorMessage(
       "No workspace opened. Please open a workspace first."
