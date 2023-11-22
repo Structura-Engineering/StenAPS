@@ -19,6 +19,15 @@ body {
   margin: 0 auto;
 }
 
+.container#main {
+  display: block;
+}
+
+.container#wizard {
+  display: none;
+  justify-content: center;
+}
+
 .header {
   background-color: var(--header-background-color);
   color: var(--text-color);
@@ -46,6 +55,33 @@ body {
   color: var(--text-color);
   margin-top: 10px;
   font-size: 16px;
+}
+
+.terminal {
+  background-color: #000000;
+  padding: 20px;
+  margin-top: 20px;
+  width: 50%;
+}
+
+.return-button {
+  background-color: #007acc;
+  color: #ffffff;
+  padding: 10px;
+  margin-top: 20px;
+  width: 100px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+}
+
+.return-button:hover {
+  background-color: #005999;
+}
+
+.return-button-title {
+  color: #ffffff;
 }
 
 .footer {
