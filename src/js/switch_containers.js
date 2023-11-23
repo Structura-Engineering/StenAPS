@@ -5,7 +5,7 @@ class ContainerSwitcher {
     this.returnButton = document.getElementById("return-button");
 
     this.toolItems = ["nodejs", "cpp", "py"].map((id) =>
-      document.getElementById(id)
+      document.getElementById(id),
     );
 
     this.toolItems.forEach((item) => {
@@ -14,7 +14,7 @@ class ContainerSwitcher {
 
     this.returnButton.addEventListener(
       "click",
-      this.switchToPrimary.bind(this)
+      this.switchToPrimary.bind(this),
     );
 
     this.switchToPrimary();
