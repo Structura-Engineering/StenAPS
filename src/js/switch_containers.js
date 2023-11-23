@@ -1,6 +1,6 @@
 window.onload = function () {
-  var mainBody = document.getElementById("main");
-  var wizardBody = document.getElementById("wizard");
+  var mainBody = document.getElementById("primary");
+  var wizardBody = document.getElementById("secondary");
 
   var docsItem = document.getElementById("docs");
   var cppItem = document.getElementById("cpp");

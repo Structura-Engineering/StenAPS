@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
@@ -9,11 +9,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src vscode-resource:; img-src vscode-resource:; script-src vscode-resource:; style-src vscode-resource:;"
+      content="default-src 'self'; img-src 'self'; script-src 'self'; style-src 'self';"
     />
+    <!-- content="default-src vscode-resource:; img-src vscode-resource:; script-src vscode-resource:; style-src vscode-resource:;" -->
 
     <link rel="stylesheet" href="../css/index.css" type="text/css" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
     <script src="../js/image_security.js" defer></script>
     <script src="../js/switch_containers.js" defer></script>
@@ -22,55 +23,52 @@
   </head>
 
   <body>
-    <div class="container" id="main">
-      <div class="header">
-        <h1>Sten's Automatic Project Setup</h1>
-      </div>
+    <div class="header">
+      <h1>Sten's Automatic Project Setup</h1>
+    </div>
 
-      <div>
-        <div class="icons-list">
-          <div class="tool-item" id="docs">
-            <img
-              src="../images/docs.png"
-              alt="Documentation"
-              class="tool-image"
-            />
-            <p class="tool-title">Documentation</p>
-          </div>
+    <div class="container" id="primary">
+      <div class="icons-list">
+        <div class="tool-item" id="docs">
+          <img
+            src="../images/docs.png"
+            alt="Documentation"
+            class="tool-image"
+          />
+          <p class="tool-title">Documentation</p>
+        </div>
 
-          <div class="tool-item" id="cpp">
-            <img src="../images/cpp.png" alt="C++ Setup" class="tool-image" />
-            <p class="tool-title">C++ Setup</p>
-          </div>
+        <div class="tool-item" id="cpp">
+          <img src="../images/cpp.png" alt="C++ Setup" class="tool-image" />
+          <p class="tool-title">C++ Setup</p>
+        </div>
 
-          <div class="tool-item" id="py">
-            <img src="../images/py.png" alt="Python Setup" class="tool-image" />
-            <p class="tool-title">Python Setup</p>
-          </div>
+        <div class="tool-item" id="py">
+          <img src="../images/py.png" alt="Python Setup" class="tool-image" />
+          <p class="tool-title">Python Setup</p>
+        </div>
 
-          <div class="tool-item">
-            <img
-              src="../images/coming_soon.png"
-              alt="Coming Soon!"
-              class="tool-image"
-            />
-            <p class="tool-title">Coming Soon</p>
-          </div>
+        <div class="tool-item">
+          <img
+            src="../images/coming_soon.png"
+            alt="Coming Soon!"
+            class="tool-image"
+          />
+          <p class="tool-title">Coming Soon</p>
         </div>
       </div>
     </div>
 
-    <div class="container" id="wizard">
-      <div class="header">
-        <h1>StenAPS Wizard</h1>
-      </div>
+    <div class="container" id="secondary">
+      <div class="v-layout">
+        <div class="terminal"></div>
 
-      <div class="terminal"></div>
-
-      <div class="return-button" id="return-button">
-        <p class="return-button-title">Return</p>
+        <div class="return-button" id="return-button">
+          <p class="return-button-title">Return</p>
+        </div>
       </div>
     </div>
+
     <div class="footer">
       <p>StenAPS™. © 2023 Structura-Engineering™. All rights reserved.</p>
     </div>

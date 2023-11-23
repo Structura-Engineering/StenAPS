@@ -1,17 +1,23 @@
-/* index.css */
-
 :root {
-  --body-background-color: #1e1e1e;
-  --header-background-color: #282828;
-  --footer-background-color: #282828;
-  --text-color: #ffffff;
+  --primary-bg-color: #1e1e1e;
+  --secondary-bg-color: #282828;
+  --primary-color: #ffffff;
+  --primary-font: Arial, sans-serif;
 }
 
+html,
 body {
-  background-color: var(--body-background-color);
+  overflow-x: hidden;
+  background-color: var(--primary-bg-color);
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: var(--primary-font);
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
 }
 
 .container {
@@ -19,18 +25,18 @@ body {
   margin: 0 auto;
 }
 
-.container#main {
+#primary {
   display: block;
 }
 
-.container#wizard {
+#secondary {
   display: none;
-  justify-content: center;
 }
 
-.header {
-  background-color: var(--header-background-color);
-  color: var(--text-color);
+.header,
+.footer {
+  background-color: var(--secondary-bg-color);
+  color: var(--primary-color);
   padding: 20px;
   text-align: center;
   width: 100%;
@@ -52,9 +58,17 @@ body {
 }
 
 .tool-title {
-  color: var(--text-color);
+  color: var(--primary-color);
   margin-top: 10px;
   font-size: 16px;
+}
+
+.v-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 20px;
 }
 
 .terminal {
@@ -66,7 +80,7 @@ body {
 
 .return-button {
   background-color: #007acc;
-  color: #ffffff;
+  color: var(--primary-color);
   padding: 10px;
   margin-top: 20px;
   width: 100px;
@@ -81,16 +95,11 @@ body {
 }
 
 .return-button-title {
-  color: #ffffff;
+  color: var(--primary-color);
 }
 
 .footer {
-  background-color: var(--footer-background-color);
-  color: var(--text-color);
-  padding: 20px;
-  text-align: center;
   position: fixed;
-  left: 0;
   bottom: 0;
   width: 100%;
 }
