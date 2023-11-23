@@ -9,9 +9,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; img-src 'self'; script-src 'self'; style-src 'self';"
+      content="default-src vscode-resource:; img-src vscode-resource:; script-src vscode-resource:; style-src vscode-resource:;"
     />
-    <!-- content="default-src vscode-resource:; img-src vscode-resource:; script-src vscode-resource:; style-src vscode-resource:;" -->
+    <!-- content="default-src 'self'; img-src 'self'; script-src 'self'; style-src 'self';" -->
 
     <link rel="stylesheet" href="../css/index.css" type="text/css" />
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
@@ -25,9 +25,11 @@
   <body>
     <div class="header">
       <div class="h-layout" id="primary">
-        <div class="return-button" id="return-button">
-          <p class="return-button-title">Return</p>
-        </div>
+        <img
+          src="../images/left_arrow.png"
+          class="return-button-image"
+          id="return-button"
+        />
 
         <h1>Sten's Automatic Project Setup</h1>
       </div>

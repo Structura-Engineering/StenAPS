@@ -1,27 +1,37 @@
 class ContainerSwitcher {
   constructor() {
-    this.mainBody = document.querySelector(".container#primary");
-    this.wizardBody = document.querySelector(".container#secondary");
-
-    this.cppItem = document.getElementById("cpp");
-    this.pyItem = document.getElementById("py");
-    this.nodejsItem = document.getElementById("nodejs");
-
-    this.toolItems = [this.nodejsItem, this.cppItem, this.pyItem];
-    this.toolItems.forEach((item) => {
-      item.addEventListener("click", () => {
-        console.log("clicked");
-        this.mainBody.style.display = "none";
-        this.wizardBody.style.display = "block";
-      });
-    });
-
+    this.primaryBody = document.querySelector(".container#primary");
+    this.secondaryBody = document.querySelector(".container#secondary");
     this.returnButton = document.getElementById("return-button");
-    this.returnButton.addEventListener("click", () => {
-      console.log("clicked");
-      this.wizardBody.style.display = "none";
-      this.mainBody.style.display = "block";
+
+    this.toolItems = ["nodejs", "cpp", "py"].map((id) =>
+      document.getElementById(id)
+    );
+
+    this.toolItems.forEach((item) => {
+      item.addEventListener("click", this.switchToSecondary.bind(this));
     });
+
+    this.returnButton.addEventListener(
+      "click",
+      this.switchToPrimary.bind(this)
+    );
+
+    this.switchToPrimary();
+  }
+
+  switchToPrimary() {
+    console.log("Switched to primary");
+    this.secondaryBody.style.display = "none";
+    this.primaryBody.style.display = "block";
+    this.returnButton.style.display = "none";
+  }
+
+  switchToSecondary() {
+    console.log("Switched to secondary");
+    this.primaryBody.style.display = "none";
+    this.secondaryBody.style.display = "block";
+    this.returnButton.style.display = "block";
   }
 }
 

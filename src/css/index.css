@@ -97,21 +97,18 @@ body {
   width: 50%;
 }
 
-.return-button {
+.return-button-image {
+  border: none;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
   position: absolute;
   left: 20px;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
 }
 
-.return-button:hover {
-  color: #cccccc;
-}
-
-.return-button-title {
-  color: var(--primary-color);
-  transition: color 0.3s ease;
+.return-button-image:hover {
+  filter: brightness(0) saturate(100%) invert(27%) sepia(43%) saturate(4094%)
+    hue-rotate(204deg) brightness(99%) contrast(91%);
 }
 
 .footer {
