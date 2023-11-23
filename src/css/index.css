@@ -69,6 +69,7 @@ body {
 
 .tool-item {
   text-align: center;
+  cursor: pointer;
 }
 
 .tool-image {
