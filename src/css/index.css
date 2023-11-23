@@ -25,11 +25,11 @@ body {
   margin: 0 auto;
 }
 
-#primary {
+.container#primary {
   display: block;
 }
 
-#secondary {
+.container#secondary {
   display: none;
 }
 
@@ -38,14 +38,33 @@ body {
   background-color: var(--secondary-bg-color);
   color: var(--primary-color);
   padding: 20px;
-  text-align: center;
   width: 100%;
+  height: auto;
 }
 
-.icons-list {
+.header {
+  position: relative;
+}
+
+.header h1,
+.footer p {
+  margin: auto;
+  text-align: center;
+}
+
+.h-layout {
   display: flex;
-  justify-content: space-around;
+  align-items: center;
+}
+
+.h-layout#primary {
+  margin-top: 0px;
+  justify-content: center;
+}
+
+.h-layout#secondary {
   margin-top: 20px;
+  justify-content: space-around;
 }
 
 .tool-item {
@@ -79,23 +98,20 @@ body {
 }
 
 .return-button {
-  background-color: #007acc;
-  color: var(--primary-color);
-  padding: 10px;
-  margin-top: 20px;
-  width: 100px;
+  position: absolute;
+  left: 20px;
+  background-color: transparent;
   border: none;
   cursor: pointer;
-  font-size: 16px;
-  text-align: center;
 }
 
 .return-button:hover {
-  background-color: #005999;
+  color: #cccccc;
 }
 
 .return-button-title {
   color: var(--primary-color);
+  transition: color 0.3s ease;
 }
 
 .footer {

@@ -24,17 +24,25 @@
 
   <body>
     <div class="header">
-      <h1>Sten's Automatic Project Setup</h1>
+      <div class="h-layout" id="primary">
+        <div class="return-button" id="return-button">
+          <p class="return-button-title">Return</p>
+        </div>
+
+        <h1>Sten's Automatic Project Setup</h1>
+      </div>
     </div>
 
     <div class="container" id="primary">
-      <div class="icons-list">
-        <div class="tool-item" id="docs">
-          <img
-            src="../images/docs.png"
-            alt="Documentation"
-            class="tool-image"
-          />
+      <div class="h-layout" id="secondary">
+        <div class="tool-item">
+          <a href="#">
+            <img
+              src="../images/docs.png"
+              alt="Documentation"
+              class="tool-image"
+            />
+          </a>
           <p class="tool-title">Documentation</p>
         </div>
 
@@ -46,6 +54,15 @@
         <div class="tool-item" id="py">
           <img src="../images/py.png" alt="Python Setup" class="tool-image" />
           <p class="tool-title">Python Setup</p>
+        </div>
+
+        <div class="tool-item" id="nodejs">
+          <img
+            src="../images/node-js.png"
+            alt="Node.js Setup"
+            class="tool-image"
+          />
+          <p class="tool-title">Node.js Setup</p>
         </div>
 
         <div class="tool-item">
@@ -62,10 +79,6 @@
     <div class="container" id="secondary">
       <div class="v-layout">
         <div class="terminal"></div>
-
-        <div class="return-button" id="return-button">
-          <p class="return-button-title">Return</p>
-        </div>
       </div>
     </div>
 
