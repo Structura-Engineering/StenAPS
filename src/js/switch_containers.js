@@ -1,12 +1,12 @@
 window.onload = function () {
-  var mainBody = document.getElementById("primary");
-  var wizardBody = document.getElementById("secondary");
+  const mainBody = document.getElementById("primary");
+  const wizardBody = document.getElementById("secondary");
 
-  var docsItem = document.getElementById("docs");
-  var cppItem = document.getElementById("cpp");
-  var pyItem = document.getElementById("py");
+  const docsItem = document.getElementById("docs");
+  const cppItem = document.getElementById("cpp");
+  const pyItem = document.getElementById("py");
 
-  var toolItems = [docsItem, cppItem, pyItem];
+  const toolItems = [docsItem, cppItem, pyItem];
   toolItems.forEach(function (item) {
     item.addEventListener("click", function () {
       console.log("clicked");
@@ -15,7 +15,7 @@ window.onload = function () {
     });
   });
 
-  var returnButton = document.getElementById("return-button");
+  const returnButton = document.getElementById("return-button");
 
   returnButton.addEventListener("click", function () {
     console.log("clicked");
