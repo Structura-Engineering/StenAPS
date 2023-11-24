@@ -54,6 +54,5 @@
     "gutterIcon": true
   },
   "typescript.tsc.autoDetect": "off",
-  "workbench.iconTheme": "material-icon-theme",
-  "livePreview.openPreviewTarget": "External Browser"
+  "workbench.iconTheme": "material-icon-theme"
 }

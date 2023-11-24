@@ -18,6 +18,7 @@
 
     <script src="../js/image_security.js" defer></script>
     <script src="../js/switch_containers.js" defer></script>
+    <script src="../js/on_click.js" defer></script>
 
     <title>StenAPS</title>
   </head>
@@ -38,23 +39,31 @@
     <div class="container" id="primary">
       <div class="h-layout" id="secondary">
         <div class="tool-item">
-          <a href="#">
-            <img
-              src="../images/docs.png"
-              alt="Documentation"
-              class="tool-image"
-            />
-          </a>
+          <img
+            src="../images/docs.png"
+            alt="Documentation"
+            class="tool-image"
+          />
           <p class="tool-title">Documentation</p>
         </div>
 
         <div class="tool-item" id="cpp">
-          <img src="../images/cpp.png" alt="C++ Setup" class="tool-image" />
+          <img
+            src="../images/cpp.png"
+            alt="C++ Setup"
+            class="tool-image"
+            onclick="runScript('')"
+          />
           <p class="tool-title">C++ Setup</p>
         </div>
 
         <div class="tool-item" id="py">
-          <img src="../images/py.png" alt="Python Setup" class="tool-image" />
+          <img
+            src="../images/py.png"
+            alt="Python Setup"
+            class="tool-image"
+            onclick="runScript('../scripts/python_menu.py')"
+          />
           <p class="tool-title">Python Setup</p>
         </div>
 
@@ -63,6 +72,7 @@
             src="../images/node-js.png"
             alt="Node.js Setup"
             class="tool-image"
+            onclick="runScript('')"
           />
           <p class="tool-title">Node.js Setup</p>
         </div>
