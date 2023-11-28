@@ -63,3 +63,43 @@ function Get-UserConfirmation {
 
     return $userInput
 }
+
+function Invoke-ExecuteInTempDir {
+    param (
+        [Parameter(Mandatory = $true, Position = 0)]
+        [ScriptBlock]$scriptBlock
+    )
+
+    $tempDir = "$env:TEMP\StenAPS"
+    
+    try {
+        if (Test-Path $tempDir) {
+            Remove-Item -Path $tempDir -Recurse -Force
+        }
+        $null = New-Item -ItemType Directory -Path $tempDir
+
+        & $scriptBlock $tempDir
+    }
+    finally {
+        if (Test-Path $tempDir) {
+            Remove-Item -Path $tempDir -Recurse -Force
+        }
+    }
+
+    return $tempDir
+}
+
+function Invoke-ExecuteWithUACRights {
+    param (
+        [Parameter(Mandatory = $true, Position = 0)]
+        [ScriptBlock]$scriptBlock
+    )
+
+    if (-NOT ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {
+        Write-PrefixMsg "This script must be run as an Administrator. Please restart VSCode as Administrator and try again." -color Red
+    }
+    else {
+        & $scriptBlock
+    }
+}
+
