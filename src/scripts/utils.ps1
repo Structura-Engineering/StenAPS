@@ -64,6 +64,16 @@ function Get-UserConfirmation {
     return $userInput
 }
 
+function Get-UserInput {
+    param(
+        [string]$prompt
+    )
+
+    Write-PrefixMsg $prompt -color Cyan
+    $user_input = Read-Host
+    return $user_input
+}
+
 function Invoke-ExecuteInTempDir {
     param (
         [Parameter(Mandatory = $true, Position = 0)]
