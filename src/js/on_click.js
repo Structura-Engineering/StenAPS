@@ -17,7 +17,7 @@ class OnClick {
    */
   constructor() {
     this.toolItems = ["docker", "nodejs", "cpp", "py"].map((id) =>
-      document.getElementById(id)
+      document.getElementById(id),
     );
 
     this.toolItems.forEach((item) => {
