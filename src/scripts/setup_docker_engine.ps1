@@ -1,5 +1,3 @@
-. .\src\scripts\utils.ps1
-
 Invoke-ExecuteWithUACRights {
     try {
         $dockerEnginePath = Get-Command docker -ErrorAction SilentlyContinue

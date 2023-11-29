@@ -1,5 +1,3 @@
-. .\src\scripts\utils.ps1
-
 Invoke-ExecuteWithUACRights {
     try {
         $workDir = Get-UserInput -prompt "Enter Working Directory in Container (e.g., /app):"

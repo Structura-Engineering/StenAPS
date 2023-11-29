@@ -1,5 +1,3 @@
-. .\src\scripts\utils.ps1
-
 Invoke-ExecuteWithUACRights {
     try {
         $chocoPath = Get-Command choco -ErrorAction SilentlyContinue

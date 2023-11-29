@@ -6,7 +6,6 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta
       http-equiv="Content-Security-Policy"
       content="default-src vscode-resource:; img-src vscode-resource:; script-src vscode-resource:; style-src vscode-resource:;"
@@ -15,8 +14,6 @@
     <link rel="stylesheet" href="../css/index.css" type="text/css" />
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
-    <script src="../js/image_security.js" defer></script>
-    <script src="../js/switch_containers.js" defer></script>
     <script src="../js/on_click.js" defer></script>
 
     <title>StenAPS</title>
@@ -45,7 +42,7 @@
             src="../images/docker.png"
             alt="Docker Setup"
             class="tool-image"
-            onclick="runScript('../scripts/docker_menu.py')"
+            id="docker"
           />
           <p class="tool-title">Docker Setup</p>
         </div>
@@ -55,7 +52,7 @@
             src="../images/cpp.png"
             alt="C++ Setup"
             class="tool-image"
-            onclick="runScript('../scripts/cpp_menu.py')"
+            id="cpp"
           />
           <p class="tool-title">C++ Setup</p>
         </div>
@@ -65,7 +62,7 @@
             src="../images/py.png"
             alt="Python Setup"
             class="tool-image"
-            onclick="runScript('../scripts/python_menu.py')"
+            id="py"
           />
           <p class="tool-title">Python Setup</p>
         </div>
@@ -75,7 +72,7 @@
             src="../images/node-js.png"
             alt="Node.js Setup"
             class="tool-image"
-            onclick="runScript('../scripts/nodejs_menu.py')"
+            id="nodejs"
           />
           <p class="tool-title">Node.js Setup</p>
         </div>

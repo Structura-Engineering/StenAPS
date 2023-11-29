@@ -1,4 +1,4 @@
-. .\src\scripts\utils.ps1
+. $PSScriptRoot\utils.ps1
 
 $scripts = [ordered]@{
     "setup_chocolatey.ps1"     = @();
@@ -45,16 +45,21 @@ function Get-Choice($scripts) {
 function Invoke-Scripts($scripts, $choice) {
     if ($choice -eq 'A') {
         foreach ($script in $scripts.Keys) {
-            Write-PrefixMsg "Running $script..." -color Cyan
-            & ".\src\scripts\$script"
+            $scriptNameWithoutExtension = [System.IO.Path]::GetFileNameWithoutExtension($script)
+            Write-PrefixMsg "Running $scriptNameWithoutExtension..." -color Cyan
+            $scriptPath = Join-Path -Path $PSScriptRoot -ChildPath $script
+            . $scriptPath
         }
     }
     elseif ($choice -gt 0 -and $choice -le $scripts.Count) {
         $script = $scripts.Keys[$choice - 1]
-        Write-PrefixMsg "Running $script..." -color Cyan
-        & ".\src\scripts\$script"
+        $scriptNameWithoutExtension = [System.IO.Path]::GetFileNameWithoutExtension($script)
+        Write-PrefixMsg "Running $scriptNameWithoutExtension..." -color Cyan
+        $scriptPath = Join-Path -Path $PSScriptRoot -ChildPath $script
+        . $scriptPath
     }
 }
+
 
 function Run {
     try {

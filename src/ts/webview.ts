@@ -42,12 +42,16 @@ export function createWebview(context: ExtensionContext) {
   panel.webview.onDidReceiveMessage(
     (message) => {
       switch (message.command) {
-        case "runScript": {
-          const terminal = window.createTerminal("PowerShell Terminal");
+        case "runInTerminal":
+          const scriptPath = join(__dirname, message.script);
+          const terminal = window.createTerminal(
+            `${message.id} Setup Terminal`
+          );
           terminal.show();
-          terminal.sendText(message.text);
+          terminal.sendText(
+            `powershell -ExecutionPolicy ByPass -File ${scriptPath}`
+          );
           return;
-        }
         default:
           break;
       }

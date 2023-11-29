@@ -1,16 +1,35 @@
-import { postMessage } from "vscode";
+const vscode = acquireVsCodeApi();
+
+const scripts = {
+  docker: "../src/scripts/docker_menu.ps1",
+  nodejs: "../src/scripts/nodejs_menu.ps1",
+  cpp: "../src/scripts/cpp_menu.ps1",
+  py: "../src/scripts/py_menu.ps1",
+};
 
 /**
- * Run a script in the terminal.
- * @param {string} script - The script to be run.
+ * The OnClick class adds click event listeners to DOM elements with specified ids.
+ * When one of these elements is clicked, a message is posted to the extension.
  */
-function runScript(script) {
-  postMessage({
-    command: "runTerminal",
-    text: script,
-  });
+class OnClick {
+  /**
+   * The constructor gets DOM elements with specified ids and adds click event listeners to them.
+   */
+  constructor() {
+    this.toolItems = ["docker", "nodejs", "cpp", "py"].map((id) =>
+      document.getElementById(id)
+    );
+
+    this.toolItems.forEach((item) => {
+      item.addEventListener("click", () => {
+        vscode.postMessage({
+          command: "runInTerminal",
+          id: item.id,
+          script: scripts[item.id],
+        });
+      });
+    });
+  }
 }
 
-window.runScript = runScript;
-
-// TODO: Rewrite this to work with webview.ts
+document.addEventListener("DOMContentLoaded", () => new OnClick());
