@@ -11,7 +11,7 @@ import { getResourcePath } from "./utils";
  */
 function getHtmlContent(context: ExtensionContext, srcPath: Uri) {
   const htmlPath = Uri.file(
-    join(context.extensionPath, "src", "html", "index.html")
+    join(context.extensionPath, "src", "html", "index.html"),
   );
   let htmlContent = readFileSync(htmlPath.fsPath, "utf8");
 
@@ -33,7 +33,7 @@ export function createWebview(context: ExtensionContext) {
     {
       enableScripts: true,
       localResourceRoots: [getResourcePath(context)],
-    }
+    },
   );
 
   const srcPath = panel.webview.asWebviewUri(getResourcePath(context));
@@ -45,11 +45,11 @@ export function createWebview(context: ExtensionContext) {
         case "runInTerminal":
           const scriptPath = join(__dirname, message.script);
           const terminal = window.createTerminal(
-            `${message.id} Setup Terminal`
+            `${message.id} Setup Terminal`,
           );
           terminal.show();
           terminal.sendText(
-            `powershell -ExecutionPolicy ByPass -File ${scriptPath}`
+            `powershell -ExecutionPolicy ByPass -File ${scriptPath}`,
           );
 
           const tempDir = process.env.TEMP || ".";
@@ -70,6 +70,6 @@ export function createWebview(context: ExtensionContext) {
       }
     },
     undefined,
-    context.subscriptions
+    context.subscriptions,
   );
 }
