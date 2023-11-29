@@ -48,7 +48,7 @@ class ImageSecurity {
   static generateUniqueFilename(originalFilename) {
     const hash = md5(originalFilename);
     const fileExtension = originalFilename.substring(
-      originalFilename.lastIndexOf(".") + 1
+      originalFilename.lastIndexOf(".") + 1,
     );
     const uniqueFilename = `${hash}.${fileExtension}`;
     return uniqueFilename;
