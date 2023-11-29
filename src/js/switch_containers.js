@@ -4,7 +4,7 @@ class ContainerSwitcher {
     this.secondaryBody = document.querySelector(".container#secondary");
     this.returnButton = document.getElementById("return-button");
 
-    this.toolItems = ["nodejs", "cpp", "py"].map((id) =>
+    this.toolItems = ["docker", "nodejs", "cpp", "py"].map((id) =>
       document.getElementById(id)
     );
 

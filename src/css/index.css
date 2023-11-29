@@ -63,11 +63,13 @@ body {
 }
 
 .h-layout#secondary {
+  flex-wrap: wrap;
   margin-top: 20px;
   justify-content: space-around;
 }
 
 .tool-item {
+  flex: 1 0 100px;
   text-align: center;
   cursor: pointer;
 }

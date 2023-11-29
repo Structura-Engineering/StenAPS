@@ -1,4 +1,8 @@
 {
+  "[dockerfile]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker",
+    "editor.formatOnSave": true
+  },
   "[powershell]": {
     "editor.defaultFormatter": "ms-vscode.powershell",
     "editor.formatOnSave": true
