@@ -5,12 +5,10 @@ name = "javascript"
 
   [analyzers.meta]
   environment = ["nodejs"]
+  exclude_patterns = ['tests/**']
 
 [[transformers]]
 name = "prettier"
 
 [[transformers]]
 name = "standardjs"
-
-[analyzers.meta]
-exclude_patterns = ['tests/**']
