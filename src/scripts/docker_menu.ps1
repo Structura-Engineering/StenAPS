@@ -2,9 +2,9 @@
 
 $scripts = [ordered]@{
     "setup_chocolatey.ps1"     = @();
-    "setup_docker_machine.ps1" = @("setup_chocolatey.ps1");
+    "setup_virtualbox.ps1"     = @("setup_chocolatey.ps1");
+    "setup_docker_machine.ps1" = @("setup_virtualbox.ps1");
     "setup_docker_engine.ps1"  = @("setup_docker_machine.ps1");
-    "setup_virtualbox.ps1"     = @("setup_docker_engine.ps1");
 }
 
 function Show-Menu {
