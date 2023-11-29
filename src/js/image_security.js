@@ -1,13 +1,22 @@
 import { md5 } from "./md5.js";
 
+/**
+ * Class representing image security.
+ */
 class ImageSecurity {
+  /**
+   * Create a new ImageSecurity instance.
+   */
   constructor() {
     this.images = document.querySelectorAll("img[data-obfuscate]");
     this.addEventListeners();
     this.obfuscateImageURLs();
   }
 
-  addEventListeners() {
+  /**
+   * Add event listeners to prevent certain actions on obfuscated images.
+   */
+  static addEventListeners() {
     document.addEventListener("contextmenu", (event) => {
       if (event.target.matches("img[data-obfuscate]")) {
         event.preventDefault();
@@ -31,6 +40,11 @@ class ImageSecurity {
     });
   }
 
+  /**
+   * Generate a unique filename using the MD5 hash of the original filename.
+   * @param {string} originalFilename - The original filename.
+   * @return {string} The unique filename.
+   */
   static generateUniqueFilename(originalFilename) {
     const hash = md5(originalFilename);
     const fileExtension = originalFilename.substring(
@@ -40,6 +54,9 @@ class ImageSecurity {
     return uniqueFilename;
   }
 
+  /**
+   * Obfuscate the URLs of all images marked for obfuscation.
+   */
   obfuscateImageURLs() {
     this.images.forEach((image) => {
       const originalSrc = image.getAttribute("src");

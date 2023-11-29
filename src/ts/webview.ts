@@ -43,11 +43,13 @@ export function createWebview(context: ExtensionContext) {
     (message) => {
       switch (message.command) {
         case "runScript": {
-          let terminal = window.createTerminal("PowerShell Terminal");
+          const terminal = window.createTerminal("PowerShell Terminal");
           terminal.show();
           terminal.sendText(message.text);
           return;
         }
+        default:
+          break;
       }
     },
     undefined,
