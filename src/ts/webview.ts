@@ -1,6 +1,6 @@
 import { window, ViewColumn, Uri, ExtensionContext } from "vscode";
 import { join } from "path";
-import { readFileSync } from "fs";
+import { readFileSync, watch } from "fs";
 import { getResourcePath } from "./utils";
 
 /**
@@ -51,6 +51,19 @@ export function createWebview(context: ExtensionContext) {
           terminal.sendText(
             `powershell -ExecutionPolicy ByPass -File ${scriptPath}`
           );
+
+          const tempDir = process.env.TEMP || ".";
+          const tempFilePath = join(tempDir, "StenAPS", "script_done.txt");
+          const watcher = watch(tempFilePath, (eventType, _) => {
+            if (eventType === "change") {
+              const signal = readFileSync(tempFilePath, "utf8");
+              if (signal === "SCRIPT_DONE") {
+                terminal.dispose();
+                watcher.close(); // TODO: Doesn't work properly yet.
+              }
+            }
+          });
+
           return;
         default:
           break;

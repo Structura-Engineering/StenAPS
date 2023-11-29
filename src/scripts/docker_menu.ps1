@@ -5,7 +5,6 @@ $scripts = [ordered]@{
     "setup_docker_machine.ps1" = @("setup_chocolatey.ps1");
     "setup_docker_engine.ps1"  = @("setup_docker_machine.ps1");
     "setup_virtualbox.ps1"     = @("setup_docker_engine.ps1");
-    # "run_docker_daemon.ps1"    = @("setup_virtualbox.ps1");
 }
 
 function Show-Menu {
@@ -71,7 +70,7 @@ function Run {
 
         Write-PrefixMsg "Setup complete!" -color Green
         Pause
-        Clear-Host
+        Invoke-ExecuteInTempDir { Write-Output 'SCRIPT_DONE' | Out-File -FilePath .\script_done.txt -Encoding ascii }
     }
     catch {
         Write-Error $_
