@@ -8,3 +8,5 @@ function runScript(script) {
 }
 
 window.runScript = runScript;
+
+// TODO: Rewrite this to work with webview.ts
