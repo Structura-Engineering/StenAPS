@@ -33,3 +33,5 @@ class OnClick {
 }
 
 document.addEventListener("DOMContentLoaded", () => new OnClick());
+
+// TODO: optimize this code. item.id is defined twice once in list and once in mapping.
