@@ -42,11 +42,12 @@ export function createWebview(context: ExtensionContext) {
   panel.webview.onDidReceiveMessage(
     (message) => {
       switch (message.command) {
-        case "runScript":
-          let terminal = window.createTerminal(`PowerShell Terminal`);
+        case "runScript": {
+          let terminal = window.createTerminal("PowerShell Terminal");
           terminal.show();
           terminal.sendText(message.text);
           return;
+        }
       }
     },
     undefined,

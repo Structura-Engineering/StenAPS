@@ -11,3 +11,6 @@ name = "prettier"
 
 [[transformers]]
 name = "standardjs"
+
+[analyzers.meta]
+exclude_patterns = ['tests/**']
