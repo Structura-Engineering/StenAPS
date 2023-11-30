@@ -11,8 +11,9 @@ import { getResourcePath } from "./utils";
  */
 function getHtmlContent(context: ExtensionContext, srcPath: Uri) {
   const htmlPath = Uri.file(
-    join(context.extensionPath, "src", "html", "index.html")
+    join(getResourcePath(context).fsPath, "html", "index.html")
   );
+
   let htmlContent = readFileSync(htmlPath.fsPath, "utf8");
 
   htmlContent = htmlContent.replace(/src="\.\.\//g, `src="${srcPath}/`);
@@ -41,9 +42,9 @@ export function createWebview(context: ExtensionContext) {
 
   panel.webview.onDidReceiveMessage(
     (message) => {
-      switch (message.command) {
+      switch (message.cmd) {
         case "runInTerminal":
-          const scriptPath = join(__dirname, message.script);
+          const scriptPath = join(__dirname, message.target);
           const terminal = window.createTerminal(
             `${message.id} Setup Terminal`
           );

@@ -1,17 +1,12 @@
-:root {
-  --primary-bg-color: #1e1e1e;
-  --secondary-bg-color: #282828;
-  --primary-color: #ffffff;
-  --primary-font: Arial, sans-serif;
-}
-
 html,
 body {
   overflow-x: hidden;
-  background-color: var(--primary-bg-color);
+  background-color: var(--vscode-editor-background);
   margin: 0;
   padding: 0;
-  font-family: var(--primary-font);
+  font-family: var(--vscode-editor-font-family);
+  font-weight: var(--vscode-editor-font-weight);
+  font-size: var(--vscode-editor-font-size);
 }
 
 *,
@@ -31,8 +26,8 @@ body {
 
 .header,
 .footer {
-  background-color: var(--secondary-bg-color);
-  color: var(--primary-color);
+  background-color: var(--vscode-editor-lineHighlightBackground);
+  color: var(--vscode-editor-foreground);
   padding: 20px;
   width: 100%;
   height: auto;
@@ -76,7 +71,7 @@ body {
 }
 
 .tool-title {
-  color: var(--primary-color);
+  color: var(--vscode-editor-foreground);
   margin-top: 10px;
   font-size: 16px;
 }
