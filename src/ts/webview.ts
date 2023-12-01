@@ -1,29 +1,53 @@
-import { window, ViewColumn, Uri, ExtensionContext } from "vscode";
+import { window, ViewColumn, ExtensionContext, WebviewPanel } from "vscode";
 import { join } from "path";
-import { readFileSync, watch } from "fs";
-import { getResourcePath } from "./utils";
+import { readFileSync } from "fs";
+import { getResourcePath, getHtmlContent } from "./utils";
 
 /**
- * Returns the HTML content for the webview.
- * @param {ExtensionContext} context - The extension context.
- * @param {Uri} srcPath - The source path for the webview.
- * @returns {string} - The HTML content.
+ * Commands for handling different actions.
  */
-function getHtmlContent(context: ExtensionContext, srcPath: Uri) {
-  const htmlPath = Uri.file(
-    join(getResourcePath(context).fsPath, "html", "index.html")
-  );
+const CMDS = {
+  RUN_IN_TERMINAL: "runInTerminal",
+};
 
-  let htmlContent = readFileSync(htmlPath.fsPath, "utf8");
-
-  htmlContent = htmlContent.replace(/src="\.\.\//g, `src="${srcPath}/`);
-  htmlContent = htmlContent.replace(/href="\.\.\//g, `href="${srcPath}/`);
-
-  return htmlContent;
+/**
+ * Interface for message object.
+ */
+interface Msg {
+  cmd: keyof typeof CMDS;
+  target: string;
+  id?: string;
 }
 
 /**
- * Creates a webview with the given context.
+ * Handles incoming messages and performs actions based on the command.
+ * @param {Msg} message - The incoming message object.
+ * @param {WebviewPanel} panel - The webview panel.
+ */
+function handleMessage(message: Msg, panel: WebviewPanel) {
+  switch (message.cmd) {
+    case CMDS.RUN_IN_TERMINAL:
+      runInTerminal(message);
+      break;
+
+    default:
+      console.error(`Unknown command: ${message.cmd}`);
+  }
+}
+
+/**
+ * Runs a script in a new terminal.
+ * @param {Msg} param0 - The message object containing the target script and id.
+ */
+function runInTerminal({ target, id }: Msg) {
+  const scriptPath = join(__dirname, target);
+  const terminal = window.createTerminal(`${id} Setup Terminal`);
+  terminal.show();
+  terminal.sendText(`powershell -ExecutionPolicy ByPass -File ${scriptPath}`);
+}
+
+/**
+ * Creates a webview panel and sets up message handling.
  * @param {ExtensionContext} context - The extension context.
  */
 export function createWebview(context: ExtensionContext) {
@@ -33,7 +57,6 @@ export function createWebview(context: ExtensionContext) {
     ViewColumn.One,
     {
       enableScripts: true,
-      localResourceRoots: [getResourcePath(context)],
     }
   );
 
@@ -41,35 +64,7 @@ export function createWebview(context: ExtensionContext) {
   panel.webview.html = getHtmlContent(context, srcPath);
 
   panel.webview.onDidReceiveMessage(
-    (message) => {
-      switch (message.cmd) {
-        case "runInTerminal":
-          const scriptPath = join(__dirname, message.target);
-          const terminal = window.createTerminal(
-            `${message.id} Setup Terminal`
-          );
-          terminal.show();
-          terminal.sendText(
-            `powershell -ExecutionPolicy ByPass -File ${scriptPath}`
-          );
-
-          const tempDir = process.env.TEMP || ".";
-          const tempFilePath = join(tempDir, "StenAPS", "script_done.txt");
-          const watcher = watch(tempFilePath, (eventType, _) => {
-            if (eventType === "change") {
-              const signal = readFileSync(tempFilePath, "utf8");
-              if (signal === "SCRIPT_DONE") {
-                terminal.dispose();
-                watcher.close(); // TODO: Doesn't work properly yet.
-              }
-            }
-          });
-
-          return;
-        default:
-          break;
-      }
-    },
+    (message) => handleMessage(message, panel),
     undefined,
     context.subscriptions
   );

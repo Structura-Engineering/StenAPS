@@ -8,58 +8,54 @@ class Configs {
    * The constructor adds click event listeners to DOM elements with specified ids.
    * When one of these elements is clicked, a message is posted to the extension.
    * @param {object} scriptConfig - The configuration object for scripts.
-   * @param {object} langConfig - The configuration object for languages.
+   * @param {object} l10nConfig - The configuration object for languages.
    */
   constructor() {
     this.scriptConfig = {
       cmd: "runInTerminal",
-      tag: "_script",
+      id: "_script",
       path: "../src/scripts/",
       suffix: "_menu",
       ext: ".ps1",
-    };
-
-    this.langConfig = {
-      cmd: "loadLangFile",
-      tag: "_lang",
-      path: "../src/json/",
-      suffix: "",
-      ext: ".json",
+      event: "click",
     };
   }
 }
 
 /**
- * The OnClick class adds click event listeners to DOM elements with specified ids.
+ * The Script class adds click event listeners to DOM elements with specified ids.
  * When one of these elements is clicked, a message is posted to the extension.
  */
-class OnClick {
+class EventHandler {
   /**
    * The constructor adds click event listeners to DOM elements with specified ids.
    * When one of these elements is clicked, a message is posted to the extension.
+   * @param {object} configs - The configuration object for scripts.
    */
   constructor(configs) {
-    const config = configs.scriptConfig;
-    document.querySelectorAll(`[id$="${config.tag}"]`).forEach((item) => {
-      const id = item.id.replace(config.tag, "");
-      const cmd = config.cmd;
-      const target = `${config.path}${id}${config.suffix}${config.ext}`;
+    for (let configKey in configs) {
+      this.addEventListeners(configs[configKey]);
+    }
+  }
 
-      item.addEventListener("click", () =>
+  /**
+   * The addEventListeners method adds click event listeners to DOM elements with specified ids.
+   * When one of these elements is clicked, a message is posted to the extension.
+   * @param {object} config - The configuration object for scripts.
+   */
+  addEventListeners(config) {
+    document.querySelectorAll(`[id$="${config.id}"]`).forEach((item) => {
+      let id = item.id.replace(config.id, "");
+      const cmd = config.cmd;
+      let target = `${config.path}${id}${config.suffix}${config.ext}`;
+
+      item.addEventListener(config.event, () =>
         vscode.postMessage({ id, cmd, target })
       );
     });
   }
 }
 
-/**
- * The L10N class adds click event listeners to DOM elements with specified ids.
- * When one of these elements is clicked, a message is posted to the extension.
- */
-class L10N {}
-
 document.addEventListener("DOMContentLoaded", () => {
-  const configs = new Configs();
-  new OnClick(configs);
-  new L10N();
+  new EventHandler(new Configs());
 });

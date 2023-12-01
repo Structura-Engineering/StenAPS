@@ -70,7 +70,8 @@ function Run {
 
         Write-PrefixMsg "Setup complete!" -color Green
         Pause
-        Invoke-ExecuteInTempDir { Write-Output 'SCRIPT_DONE' | Out-File -FilePath .\script_done.txt -Encoding ascii }
+        Clear-Host
+        Clear-Host
     }
     catch {
         Write-Error $_

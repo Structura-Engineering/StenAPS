@@ -9,9 +9,13 @@ import { createWebview } from "./ts/webview";
  * subscribe to events, register commands, and interact with the VS Code API.
  */
 export function activate(context: ExtensionContext) {
-  const disposables = [
-    commands.registerCommand("StenAPS.webview", () => createWebview(context)),
-  ];
+  const RegisterCMDS: { [command: string]: () => void } = {
+    "StenAPS.webview": () => createWebview(context),
+  };
+
+  const disposables = Object.keys(RegisterCMDS).map((command) =>
+    commands.registerCommand(command, RegisterCMDS[command])
+  );
 
   context.subscriptions.push(...disposables);
 }
