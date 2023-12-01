@@ -57,7 +57,7 @@ export function createWebview(context: ExtensionContext) {
     ViewColumn.One,
     {
       enableScripts: true,
-    }
+    },
   );
 
   const srcPath = panel.webview.asWebviewUri(getResourcePath(context));
@@ -66,6 +66,6 @@ export function createWebview(context: ExtensionContext) {
   panel.webview.onDidReceiveMessage(
     (message) => handleMessage(message, panel),
     undefined,
-    context.subscriptions
+    context.subscriptions,
   );
 }

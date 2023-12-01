@@ -33,7 +33,7 @@ class EventHandler {
    * @param {object} configs - The configuration object for scripts.
    */
   constructor(configs) {
-    for (let configKey in configs) {
+    for (const configKey in configs) {
       this.addEventListeners(configs[configKey]);
     }
   }
@@ -45,12 +45,12 @@ class EventHandler {
    */
   addEventListeners(config) {
     document.querySelectorAll(`[id$="${config.id}"]`).forEach((item) => {
-      let id = item.id.replace(config.id, "");
+      const id = item.id.replace(config.id, "");
       const cmd = config.cmd;
-      let target = `${config.path}${id}${config.suffix}${config.ext}`;
+      const target = `${config.path}${id}${config.suffix}${config.ext}`;
 
       item.addEventListener(config.event, () =>
-        vscode.postMessage({ id, cmd, target })
+        vscode.postMessage({ id, cmd, target }),
       );
     });
   }

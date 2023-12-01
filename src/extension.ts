@@ -14,7 +14,7 @@ export function activate(context: ExtensionContext) {
   };
 
   const disposables = Object.keys(RegisterCMDS).map((command) =>
-    commands.registerCommand(command, RegisterCMDS[command])
+    commands.registerCommand(command, RegisterCMDS[command]),
   );
 
   context.subscriptions.push(...disposables);
