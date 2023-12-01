@@ -19,7 +19,7 @@ export function getResourcePath(context: ExtensionContext) {
  */
 export function getHtmlContent(context: ExtensionContext, srcPath: Uri) {
   const htmlPath = Uri.file(
-    join(getResourcePath(context).fsPath, "html", "index.html")
+    join(getResourcePath(context).fsPath, "html", "index.html"),
   );
 
   let htmlContent = readFileSync(htmlPath.fsPath, "utf8");
